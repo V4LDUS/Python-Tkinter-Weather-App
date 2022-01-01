@@ -12,21 +12,22 @@ canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
 # 6th, a frame inside the canva
-frame = tk.Frame(root, bg='darkgreen')
-frame.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.8)
-# relative x and relative y to center the frame
+frame = tk.Frame(root, bg='lightgreen', bd=3)
+frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n')
+# relative x and relative y to center the frame, anchor='n' to set it in the middle
 
-button = tk.Button(frame, text="Test Button", bg='crimson')  # Creating button
-# That will put the button on the screen inside the frame
-button.place(relx=0, rely=0, relheight=0.25, relwidth=0.25)
+entry = tk.Entry(frame, bg='lightgray', font=40)
+entry.place(relwidth=0.65, relheight=1)
 
-# 7th, label and entry
-label = tk.Label(frame, text="I'm a label", bg='lightyellow')
-label.pack(side='right', fill='y')
+button = tk.Button(frame, text="Get weather", bg='crimson')
+button.place(relx=0.7, relheight=1, relwidth=0.3)
 
-entry = tk.Entry(frame, bg='lightgray')  # entry is where you type an input
-entry.pack(side='right', fill='y')  # change position and size by pack
-# can use .grid() or .place() instead
+lower_frame = tk.Frame(root, bg='lightgreen', bd=6)  # create another frame
+lower_frame.place(relx=0.5, rely=0.25, relheight=0.6,
+                  relwidth=0.75, anchor='n')
+
+label = tk.Label(lower_frame)
+label.place(relwidth=1, relheight=1)
 
 root.mainloop()
 # Anything that we put in the app will be run between these two lines of code
